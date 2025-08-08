@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #f43f5e;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f1f5f9;
+        }
+        
+        .bg-glass {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        
+        .floating-label {
+            position: absolute;
+            pointer-events: none;
+            left: 12px;
+            top: 16px;
+            transition: 0.2s ease all;
+            color: #64748b;
+        }
+        
+        .input-field:focus ~ .floating-label,
+        .input-field:not(:placeholder-shown) ~ .floating-label {
+            top: -10px;
+            left: 10px;
+            font-size: 12px;
+            background: white;
+            padding: 0 5px;
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-md">
+        <div class="bg-white rounded-xl shadow-2xl overflow-hidden">
+            <!-- Header with gradient bg -->
+            <div class="bg-gradient-to-r from-blue-500 to-green-500 p-6 text-center">
+                <h1 class="text-2xl font-bold text-white">Welcome Back</h1>
+                <p class="text-indigo-100 mt-2">Sign in to access your dashboard</p>
+            </div>
+            
+            <!-- Login Form -->
+            <div class="p-8">
+                <!-- Social Login Buttons -->
+                <div class="flex space-x-4 mb-6">
+                    <a href="https://accounts.google.com/signin" target="_blank" class="flex-1">
+                        <button class="flex-1 py-2 rounded-lg border border-gray-200 hover:shadow-md transition-all flex items-center justify-center bg-white text-gray-700 hover:bg-gray-50">
+                            <i class="fab fa-google text-red-500 mr-2"></i>
+                            Google
+                        </button>
+                    </a>
+                    <a href="https://github.com/login" target="_blank" class="flex-1">
+                        <button class="flex-1 py-2 rounded-lg border border-gray-200 hover:shadow-md transition-all flex items-center justify-center bg-white text-gray-700 hover:bg-gray-50">
+                            <i class="fab fa-github text-gray-800 mr-2"></i>
+                            GitHub
+                        </button>
+                    </a>
+                </div>
+                
+                <div class="relative flex items-center py-4">
+                    <div class="flex-grow border-t border-gray-200"></div>
+                    <span class="flex-shrink mx-4 text-gray-400">OR</span>
+                    <div class="flex-grow border-t border-gray-200"></div>
+                </div>
+                
+                <!-- Email Input -->
+                <div class="relative mt-4">
+                    <input type="email" id="email" placeholder=" " class="input-field w-full py-3 px-4 border border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition">
+                    <label class="floating-label">Email Address</label>
+                    <div class="absolute right-3 top-3 text-gray-400">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                </div>
+                
+                <!-- Password Input -->
+                <div class="relative mt-6">
+                    <input type="password" id="password" placeholder=" " class="input-field w-full py-3 px-4 border border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition">
+                    <label class="floating-label">Password</label>
+                    <div class="absolute right-3 top-3 text-gray-400 cursor-pointer" onclick="togglePasswordVisibility()">
+                        <i class="fas fa-eye-slash"></i>
+                    </div>
+                </div>
+                
+                <!-- Remember Me & Forgot Password -->
+                <div class="flex items-center justify-between mt-6">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="remember" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                        <label for="remember" class="ml-2 text-sm text-gray-600">Remember me</label>
+                    </div>
+                    <a href="#" class="text-sm text-indigo-600 hover:text-indigo-500">Forgot password?</a>
+                </div>
+                
+                <!-- Submit Button -->
+                <button onclick="handleLogin()" class="w-full mt-6 py-3 px-4 bg-gradient-to-r from-blue-500 to-green-500 hover:from-indigo-600 hover:to-pink-600 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                    Sign In
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+                
+                <!-- Register Link -->
+                <div class="text-center mt-6">
+                    <p class="text-gray-600">Don't have an account? <a href="#" class="text-indigo-600 font-medium hover:text-indigo-500">Sign up</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Demo Credentials Banner -->
+        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mt-6 rounded-lg">
+            <div class="flex">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-info-circle text-yellow-400"></i>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-sm text-blue-600 font-medium">Demo credentials</h3>
+                    <div class="mt-1 text-sm text-blue-600">
+                        <p>Email: demo@example.com</p>
+                        <p>Password: demo123</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('password');
+            const eyeIcon = document.querySelector('#password + .floating-label + div i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.classList.replace('fa-eye-slash', 'fa-eye');
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.classList.replace('fa-eye', 'fa-eye-slash');
+            }
+        }
+
+        function handleLogin() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Simple validation
+            if (!email || !password) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // Show loading state
+            const btn = document.querySelector('button[onclick="handleLogin()"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Authenticating...';
+            btn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Here you would normally make an actual API call
+                if (email === 'demo@example.com' && password === 'demo123') {
+                    // Successful login
+                    btn.innerHTML = '<i class="fas fa-check-circle mr-2"></i> Success! Redirecting...';
+                    setTimeout(() => {
+                        // Redirect would happen here
+                        window.location.href = 'https://summer.hackclub.com/'; // Uncomment this line
+                    }, 1000);
+                } else {
+                    // Failed login
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                    alert('Invalid credentials. Please try again.');
+                }
+            }, 1500);
+        }
+
+        // Add floating label functionality
+        document.querySelectorAll('.input-field').forEach(input => {
+            input.addEventListener('input', function() {
+                const label = this.nextElementSibling;
+                if (this.value.trim() !== '') {
+                    label.classList.add('active');
+                } else {
+                    label.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
