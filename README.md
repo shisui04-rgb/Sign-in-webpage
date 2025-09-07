@@ -5,7 +5,7 @@ Nexus Login is a modern and responsive login webpage designed using HTML, CSS, a
 ## Features
 
 - **Responsive Design**: Adapts to various screen sizes for optimal viewing on mobile and desktop devices.
-- **Social Login Options**: Includes buttons for Google and GitHub login.
+- **Social Login Options**: Includes buttons for Google login.
 - **Floating Labels**: Input fields have floating labels for a clean and modern look.
 - **Password Visibility Toggle**: Users can toggle the visibility of their password.
 - **Demo Credentials**: Predefined demo credentials for quick access.
@@ -24,7 +24,7 @@ Email: demo@example.com
 Password: demo123
 Social Login:
 
-Click on the Google or GitHub buttons to simulate social login (currently not functional).
+Click on the Google buttons to simulate social login (currently not functional).
 Form Interaction:
 
 Fill in the email and password fields.
@@ -38,9 +38,6 @@ Fonts: Change the font family by updating the Google Fonts link in the <head> se
 Functionality: Update the JavaScript functions to connect to your backend authentication system.
 Contributing
 Contributions are welcome! If you have suggestions for improvements or new features, feel free to create an issue or submit a pull request.
-
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
 
 Acknowledgments
 Tailwind CSS for utility-first CSS framework.
