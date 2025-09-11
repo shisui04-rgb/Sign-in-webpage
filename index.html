@@ -188,7 +188,7 @@
         if (email === 'demo@example.com' && password === 'demo123') {
           btn.innerHTML = '<i class="fas fa-check-circle mr-2"></i> Success! Redirecting...';
           setTimeout(() => {
-            window.location.href = 'https://raw.githack.com/shisui04-rgb/galaxy/refs/heads/main/Galaxy.html';
+            window.location.href = 'https://whole-galaxy.netlify.app/';
           }, 1000);
         } else {
           btn.innerHTML = originalText;
@@ -202,9 +202,7 @@
       const userObject = parseJwt(response.credential);
       console.log("Google User:", userObject);
       alert(`Welcome, ${userObject.name}`);
-        window.location.href = 'https://raw.githack.com/shisui04-rgb/galaxy/refs/heads/main/Galaxy.html';
-    }
-
+            window.location.href = 'https://whole-galaxy.netlify.app/';
     }
 
     function parseJwt(token) {
@@ -220,4 +218,3 @@
   </script>
 </body>
 </html>
-
